@@ -1,0 +1,16 @@
+export interface ISpace {
+    px?: number,
+    py?: number,
+    pt?: number,
+    pr?: number,
+    pb?: number,
+    pl?: number,
+    p?: string,
+    mx?: number,
+    my?: number,
+    mt?: number,
+    mr?: number,
+    mb?: number,
+    ml?: number,
+    m?: string,
+}

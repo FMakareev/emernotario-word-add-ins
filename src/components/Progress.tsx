@@ -21,8 +21,17 @@ export default class Progress extends React.Component<ProgressProps> {
         } = this.props;
 
         return (
-            <Flex alignItems={'center'} justifyContent={'center'} flexDirection={'column'} width={'100%'}
-                  height={'100vh'} backgroundColor={'color4'}>
+            <Flex
+                alignItems={'center'}
+                justifyContent={'center'}
+                flexDirection={'column'}
+                width={'100%'}
+                height={'100vh'}
+                backgroundColor={'color4'}
+                style={{
+                    backgroundColor: 'red',
+                }}
+            >
                 <Box maxWidth={'300px'}>
                     <img width={'100%'} src={logo} alt={title} title={title}/>
                 </Box>

@@ -1,21 +1,21 @@
 import * as React from 'react';
 import {Form, Field} from 'react-final-form';
-import TextField from '../../../components/TextField/TextField';
-import Box from '../../../components/Box/Box';
-import ButtonBase from '../../../components/ButtonBase/ButtonBase';
-import FormNotarialAction from './FormNotarialAction';
+import TextField from '../../../../components/TextField/TextField';
+import Box from '../../../../components/Box/Box';
+import ButtonBase from '../../../../components/ButtonBase/ButtonBase';
+import {AppConsumer, IAppContextProps} from '../../../../store/AppStore';
 
 
-
-export interface IFormRegistrationValues  {
+export interface IFormRegistrationValues {
     lastName: string,
     firstName: string,
     patronymic: string,
     certificateNumber?: string,
 }
 
-export interface IFormRegistrationProps  {
+export interface IFormRegistrationProps {
     onSubmit(values: IFormRegistrationValues): Promise<void>,
+
     initialValues?: IFormRegistrationValues,
 }
 
@@ -51,20 +51,49 @@ const FormRegistration: React.FC<IFormRegistrationProps> = ({onSubmit, initialVa
 />);
 
 
+interface IHomePageProps extends IAppContextProps {
+    [propName: string]: any,
+}
 
-export class HomePage extends React.Component {
+interface IHomePageState {
+    [propName: string]: any,
+}
 
-    onSubmit = async (values: object) => {
+export class HomePage extends React.Component<IHomePageProps, IHomePageState> {
+
+    constructor(props) {
+        super(props);
+        this.state = this.initialState;
+
+    }
+
+    get initialState() {
+        return {};
+    }
+
+    onSubmit = async (values: IFormRegistrationValues) => {
         console.log(values);
+        this.props.setNotaryDataToAppStore(values);
     };
 
     render() {
         return (<Box>
-            <FormRegistration onSubmit={this.onSubmit}/>
-            <br/>
-            <FormNotarialAction onSubmit={this.onSubmit}/>
+            <FormRegistration
+                initialValues={{
+                    ...this.props.notary,
+                }}
+                onSubmit={this.onSubmit}
+            />
         </Box>);
     }
 }
 
-export default HomePage;
+const HomePageWithAppStoreConsumer = (props) => {
+
+    return <AppConsumer>
+        {value => {
+            return <HomePage {...value} {...props}/>;
+        }}
+    </AppConsumer>;
+};
+export default HomePageWithAppStoreConsumer;

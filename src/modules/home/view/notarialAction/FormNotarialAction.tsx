@@ -3,11 +3,11 @@ import {Form, Field} from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
 
 import {FieldArray} from 'react-final-form-arrays';
-import TextField from '../../../components/TextField/TextField';
-import Box from '../../../components/Box/Box';
-import ButtonBase from '../../../components/ButtonBase/ButtonBase';
-import Flex from '../../../components/Flex/Flex';
-import {IFormRegistrationValues} from './index';
+import TextField from '../../../../components/TextField/TextField';
+import Box from '../../../../components/Box/Box';
+import ButtonBase from '../../../../components/ButtonBase/ButtonBase';
+import Flex from '../../../../components/Flex/Flex';
+import {IFormRegistrationValues} from '../registration/index';
 
 
 
@@ -87,7 +87,7 @@ export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit
              }) => (
         <form onSubmit={handleSubmit}>
 
-            <Box>
+            <Box mb={9}>
                 <FieldArray name='customers'>
                     {
                         ({fields}) =>

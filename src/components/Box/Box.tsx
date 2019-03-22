@@ -13,7 +13,11 @@ import {
     borderRadius,
     borderColor,
     borders,
-    overflow
+    overflow,
+    left,
+    right,
+    bottom,
+    lineHeight,
 } from 'styled-system';
 import styled from 'styled-components';
 
@@ -25,12 +29,17 @@ export const Box = styled.div`
   ${space};
   ${opacity};
   ${position};
-  ${zIndex};
+    ${zIndex};
+  ${top};
+  ${left};
+  ${right};
+  ${bottom};
   ${width};
   ${height};
   ${minHeight};
   ${maxWidth};
   ${fontSize};
+  ${lineHeight};
   ${border};
   ${borders};
   ${borderColor};

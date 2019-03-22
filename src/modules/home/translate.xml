@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" 
+  xmlns:c="urn:schemas-microsoft-com:office:component:spreadsheet" 
+  xmlns:html="http://www.w3.org/TR/REC-html40" 
+  xmlns:o="urn:schemas-microsoft-com:office:office" 
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" 
+  xmlns:x2="http://schemas.microsoft.com/office/excel/2003/xml" 
+  xmlns:x="urn:schemas-microsoft-com:office:excel" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+    <Colors>
+      <Color>
+        <Index>3</Index>
+        <RGB>#000000</RGB>
+      </Color>
+      <Color>
+        <Index>4</Index>
+        <RGB>#0000ee</RGB>
+      </Color>
+      <Color>
+        <Index>5</Index>
+        <RGB>#006600</RGB>
+      </Color>
+      <Color>
+        <Index>6</Index>
+        <RGB>#333333</RGB>
+      </Color>
+      <Color>
+        <Index>7</Index>
+        <RGB>#808080</RGB>
+      </Color>
+      <Color>
+        <Index>8</Index>
+        <RGB>#996600</RGB>
+      </Color>
+      <Color>
+        <Index>9</Index>
+        <RGB>#c0c0c0</RGB>
+      </Color>
+      <Color>
+        <Index>10</Index>
+        <RGB>#cc0000</RGB>
+      </Color>
+      <Color>
+        <Index>11</Index>
+        <RGB>#ffffff</RGB>
+      </Color>
+    </Colors>
+  </OfficeDocumentSettings>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <WindowHeight>9000</WindowHeight>
+    <WindowWidth>13860</WindowWidth>
+    <WindowTopX>240</WindowTopX>
+    <WindowTopY>75</WindowTopY>
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Default"/>
+    <Style ss:ID="Heading_20__28_user_29_" ss:Name="Heading (user)">
+      <Font ss:Bold="1" ss:Color="#000000" ss:Size="24"/>
+    </Style>
+    <Style ss:ID="Heading_20_1" ss:Name="Heading 1">
+      <Font ss:Bold="1" ss:Color="#000000" ss:Size="18"/>
+    </Style>
+    <Style ss:ID="Heading_20_2" ss:Name="Heading 2">
+      <Font ss:Bold="1" ss:Color="#000000" ss:Size="12"/>
+    </Style>
+    <Style ss:ID="Text" ss:Name="Text"/>
+    <Style ss:ID="Note" ss:Name="Note">
+      <Font ss:Color="#333333" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Footnote" ss:Name="Footnote">
+      <Font ss:Color="#808080" ss:Italic="1" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Hyperlink" ss:Name="Hyperlink">
+      <Font ss:Color="#0000ee" ss:Size="10" ss:Underline="Single"/>
+    </Style>
+    <Style ss:ID="Status" ss:Name="Status"/>
+    <Style ss:ID="Good" ss:Name="Good">
+      <Font ss:Color="#006600" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Neutral" ss:Name="Neutral">
+      <Font ss:Color="#996600" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Bad" ss:Name="Bad">
+      <Font ss:Color="#cc0000" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Warning" ss:Name="Warning">
+      <Font ss:Color="#cc0000" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Error" ss:Name="Error">
+      <Font ss:Bold="1" ss:Color="#ffffff" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Accent" ss:Name="Accent">
+      <Font ss:Bold="1" ss:Color="#000000" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Accent_20_1" ss:Name="Accent 1">
+      <Font ss:Bold="1" ss:Color="#ffffff" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Accent_20_2" ss:Name="Accent 2">
+      <Font ss:Bold="1" ss:Color="#ffffff" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Accent_20_3" ss:Name="Accent 3">
+      <Font ss:Bold="1" ss:Color="#000000" ss:Size="10"/>
+    </Style>
+    <Style ss:ID="Heading" ss:Name="Heading">
+      <Font ss:Bold="1" ss:Color="#000000" ss:Size="24"/>
+    </Style>
+    <Style ss:ID="co1"/>
+    <Style ss:ID="co2"/>
+    <Style ss:ID="co3"/>
+    <Style ss:ID="co4"/>
+    <Style ss:ID="ta1"/>
+  </Styles>
+  <ss:Worksheet ss:Name="Sheet1">
+    <Table ss:StyleID="ta1">
+      <Column ss:Width="140.4567"/>
+      <Column ss:Width="378.9921"/>
+      <Column ss:Width="377.4614"/>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">Key</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">EN</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">RU</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">error_page_404_title</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Page not found</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Страница не найдена</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">error_page_404_description_0</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">The reasons for the emergence of the problem:</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Причины возникновения проблемы:</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">error_page_404_description_1</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">the page has been moved or renamed</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">страница была перемещена или переименована</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">error_page_404_description_2</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">the page no longer exists</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">страница больше не существует</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">error_page_404_description_3</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">URL does not correspond to reality</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">URL-адрес не соответствует действительности</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">error_not_found_title</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Ошибка</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">error_not_found_description</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">not found</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">не найден</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">error_not_accessed_title</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">You not accessed</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">У вас нет доступа</Data>
+        </Cell>
+      </Row>
+      <Row ss:Index="10" ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">section_one_title</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">EMCDPO</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">EMCDPO</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="21.0047">
+        <Cell>
+          <Data ss:Type="String">section_one_content</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Antifake is a system designed for accounting and tracking movements of lotproviding verification of authenticity (authenticity) of products or batches - both by distributors and by final buyersRegistration (if necessary) of logistic procedures, owners changes, splittings and mergers of production batchesGetting feedback from the end user of productsAfter-sales supportEach individual product or batch of lot is associated with a unique number (serial number) that is associated with an electronic passport. The uniqueness and authenticity of the electronic passport is ensured by the blockchain technology. There are mechanisms for the safe transfer of electronic passports between network participants and their validation.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Антифейк- система учета и сопровождения движения товаров, обеспечивающая проверку аутентичности (подлинности) товара или партии - как дистрибьютором, так и конечным покупателемфиксацию (при необходимости) логистических процедур, смены владельцев, разделений и слияний партий продукцииПолучение обратной связи с конечным потребителем продукцииПослепродажное сопровождениеКаждой единице продукции или партии товара сопоставляется уникальный номер, который связывается с электронным паспортом. Уникальность и подлинность электронного паспорта обеспечивается технологией блокчейн. Существуют механизмы безопасной передачи “электронных паспортов” между участниками сети и их валидации.</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">nav_home_title</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Home</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Главная</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">nav_welcome_text</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Welcome</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Добро пожаловать</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="23.8394">
+        <Cell>
+          <Data ss:Type="String">section_two_content</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Each batch of products, or even (optionally) a product unit is associated with its own electronic passport. The ownership of the electronic passport is determined by the possession of the Private Key, which is kept by the system participant, to which the electronic passport is currently registered.The system can be used to protect the authenticity of unique lot (art, real estate, etc.), small mass lot (in this case, no electronic passports are created for individual lot), electronic lot (tickets, digital assets).One of the unique opportunities is to reliably protect the authenticity and control the quantity of products produced, even if the trademark owner is not at all involved in the process of production, logistics and the manufacture of labels and packaging.The project aims at the fastest integration into an existing business (in the base case, integration can be carried out in less than an hour).The system is designed to meet the requirements of the rules of decentralization.The key data are stored in the blockchain, which provides effective protection from both information substitution and loss. No one except the data owner can manage them.[SPLITTER OR IMAGE]Initially, electronic passports are created by the owner of the brand using his Private KeyAfter that, ownership of the electronic passport can be transferred to another participant in the system as part of the movement of lot through the supply chain. It is always possible to check the history of the transfer of the electronic passport, thus establishing the authenticity of the lot and confirm the rights of the current owner. At the end of the chain, the product reaches the end customer.The end customer can authenticate the lot. When scanning the QR code on the label (or reading the RFID tag, entering the product code manually in the program or on the verifier website), the key authentication will be carried out and the supply chain will be checked. The buyer will be shown information about the product, manufacturer, etc. After purchase, it is possible to transfer the ownership of the product's electronic passport to the customer.Changing the electronic passport holder during each transaction is not mandatory, the system will work even if the passport does not change the owner at all.After purchasing the product, the Buyer can register on the manufacturer’s server. It opens up opportunities for receiving feedback, providing loyalty programs and marketing.There two ways of integration are possible.Register on emcdpo.info and use the functions provided by the server (electronic keys that grant ownership of digital property are not transferred to the server. A separate application "KeyKeeper" is used to work with them)Install and use your own copy of the server (recommended for large projects).Switching to your own server is easy at any time.Antifake uses EmerNVS and EmerDPO technologies operating on the Emer blockchain. The server core and user key software are opensource.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Каждой партии продукции, или даже (опционально) единице товара сопоставляется собственный электронный паспорт. Обладание электронным паспортом определяется обладанием Приватным Ключом, хранящимся у участника системы, на который в настоящий момент зарегистрирован электронный паспорт.Система может быть применена для защиты подлинности уникальных товаров (предметов искусства, недвижимости и т.п.), мелких массовых товаров (в этом случае на индивидуальный товар электронных паспортов не создается), электронных товаров (билеты, цифровые активы).Одной из уникальных возможностей является надежное обеспечения защиты подлинности и контроля количества произведенной продукции даже в случае, если владелец торговой марки вообще не вовлечен в процесс производства, логистики и изготовления этикеток и упаковки.Проект нацелен на максимально быструю интеграцию в существующий бизнес (в базовом варианте интеграция может быть проведена менее чем за час).Система спроектирована с учетом требований правил децентрализации. Ключевые данные сохраняются в блокчейне, что дает эффективную защиту как от подмены сведений, так и от их потери. Никто, кроме владельца данных, не может управлять ими.Изначально электронные паспорта создаются владельцем бренда с использованием его приватного ключа.После этого владение электронным паспортом может быть передано другому участнику системы в рамках движения товара по логистическим цепочкам. При этом всегда возможно проверить историю передачи электронного паспорта, установив, таким образом, подлинность товара и подтвердить права текущего собственника. В конце цепочки товар доходит до конечного покупателя.Конечный покупатель может выполнить проверку подлинности товара. При сканировании QR-кода на этикетке (чтении RFID- метки, ввода кода товара вручную в программе или на сайте - верификаторе) будет проведена проверка подлинности ключа и проверена логистическая цепочка. Покупателю будет показана информация о товаре, о производителе и т.д. После покупки возможно переоформление владения Электронного Паспорта продукта на самого покупателя. Изменение владельца электронного паспорта при каждой сделке не является обязательным, система будет работать если паспорт вообще не меняет собственника.После покупки товара Покупатель может пройти регистрацию на сервере производителя, что открывает возможности для получения обратной связи, программ лояльности и маркетинга.Для компании - производителя системы возможны два пути интеграцииЗарегистрироваться на сайте emcdpo.info и использовать предоставляемые сервером функции (электронные ключи, обеспечивающие владением цифровой собственностью, не передаются на сервер. Для работы с ними используется отдельное приложение KeyKeeper)Установить и использовать собственную копию сервера (рекомендуется для больших проектов).Переход на собственный сервер легко осуществим в любой момент.Antifake использует технологии EmerNVS и EmerDPO, работающих на блокчейне Emer. Ядро сервера и программное обеспечение, работающее с ключами пользователя, поставляется с открытым исходным кодом. </Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">readmore_close</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Hide</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Свернуть</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" ss:Height="18">
+        <Cell>
+          <Data ss:Type="String">readmore_open</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Read more…</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Читать далее…</Data>
+        </Cell>
+      </Row>
+      <Row ss:Height="12.8126">
+        <Cell ss:Index="3"/>
+      </Row>
+      <Row ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">editor_contacts_label_email</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Email</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Эл.почта</Data>
+        </Cell>
+      </Row>
+      <Row ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">editor_contacts_label_phone</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Phone</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Телефон</Data>
+        </Cell>
+      </Row>
+      <Row ss:Height="12.8126">
+        <Cell>
+          <Data ss:Type="String">editor_contacts_label_site</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Site</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">Сайт</Data>
+        </Cell>
+      </Row>
+    </Table>
+    <x:WorksheetOptions/>
+  </ss:Worksheet>
+</Workbook>

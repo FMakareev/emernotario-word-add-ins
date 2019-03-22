@@ -2,15 +2,23 @@ import * as React from 'react';
 import CreateRoute from '../../modules/router/components/CreateRoute/CreateRoute';
 import Header from '../Header/Header';
 import Box from '../Box/Box';
+import Navigation from '../Navigation/Navigation';
 
 
 export class Layout extends React.Component {
     render() {
         return (<React.Fragment>
-            <Box mx={-5}>
-                <Header/>
+            <Box>
+                <Box mx={-5}>
+                    <Header/>
+                </Box>
+
+                <CreateRoute/>
+
+                <Box width={'100%'} zIndex={100} position={'fixed'} bottom={0} mx={-5}>
+                    <Navigation/>
+                </Box>
             </Box>
-            <CreateRoute/>
         </React.Fragment>);
     }
 }

@@ -1,0 +1,17 @@
+{
+    "name": "home",
+    "version": "0.0.1",
+    "private": true,
+    "main": "./index.js",
+    "translate": [{
+        "ISO Code": "en",
+        "language": "English",
+        "active": true,
+        "default": true
+    }, {
+        "ISO Code": "ru",
+        "language": "Русский",
+        "active": true,
+        "default": false
+    }]
+}

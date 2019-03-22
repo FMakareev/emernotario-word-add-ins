@@ -10,17 +10,17 @@ export class Navigation extends React.Component {
         return (<Flex justifyContent={'center'} p={5} backgroundColor={'color4'}>
             <Box>
                 <Link to={'/'}>
-                    HomePage
+                    Нотариус
                 </Link>
             </Box>
             <Box>
                 <Link to={'/notarization'}>
-                    NotarialActionPage
+                    Создать нотаризацию
                 </Link>
             </Box>
             <Box>
                 <Link to={'/notarization-result'}>
-                    NotarizationResultPage
+                    Результат нотаризации
                 </Link>
             </Box>
         </Flex>);

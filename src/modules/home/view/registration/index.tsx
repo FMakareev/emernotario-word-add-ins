@@ -107,7 +107,7 @@ export class HomePage extends React.Component<IHomePageProps, IHomePageState> {
             <Box color={'color4'} textAlign={'center'} maxWidth={'320px'} mb={5} fontSize={9} lintHeght={9}>
                 <Translate id={'notaryDataPage.welcomeToApp'}/>
             </Box>
-            <Box textAlign={'center'}  fontSize={5} lintHeght={7} mb={9} maxWidth={'320px'}>
+            <Box textAlign={'center'} fontSize={5} lintHeght={7} mb={9} maxWidth={'320px'}>
                 <Translate id={'notaryDataPage.notaryDataSettingsInfo'}/>
             </Box>
             <Box fontSize={7} lintHeght={9} fontWeight={'bold'} textAlign={'center'} mb={5} maxWidth={'320px'}>

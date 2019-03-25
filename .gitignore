@@ -64,3 +64,7 @@ packages/**
 typings/**
 .vscode/**
 .awcache/**
+
+
+*.stackdump
+*.exe

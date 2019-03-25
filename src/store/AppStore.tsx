@@ -1,4 +1,5 @@
 import * as React from 'react';
+import SHA512 from 'sha512-es';
 import {IFormRegistrationValues} from '../modules/home/view/registration';
 import Progress from '../components/Progress';
 import {
@@ -22,6 +23,11 @@ export interface IAppContextProps {
     getNotarizationDataDataFromDocumentSetting: any,
     setNotarizationDataDataToAppStore: any,
     removeNotarizationDataDataFromDocumentSetting: any,
+
+    getHash512DocumentContent: any,
+    getHash512DateOfDocumentAndNotary: any,
+    getHash512DataOfNotarisation: any,
+    getFile: any,
 
     [propName: string]: any,
 }
@@ -75,7 +81,6 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
             });
         });
     };
-
 
 
     /**
@@ -158,7 +163,6 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
     };
 
 
-
     /** @desc метод получает данные нотаризации из кеша документа */
     getNotarizationDataDataFromDocumentSetting = (): IFormNotarialActionValues => {
         try {
@@ -232,6 +236,98 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
             });
     };
 
+    /** @desc чтение документа, метод получает содержимое документа */
+    getFile = () => {
+        return new Promise((resolve) => {
+            Office.context.document.getFileAsync(Office.FileType.Text, {sliceSize: 4194304  /*64 KB*/},
+                async (result) => {
+                    // https://stackoverflow.com/questions/41063377/word-add-in-get-full-document-text
+                    if (result.status === Office.AsyncResultStatus.Succeeded) {
+                        // If the getFileAsync call succeeded, then
+                        // result.value will return a valid File Object.
+                        let myFile = result.value;
+                        console.log('result.value: ', result.value);
+                        let sliceCount = myFile.sliceCount;
+                        let slicesReceived = 0, gotAllSlices = true, docDataSlices = [];
+                        console.log('File size:' + myFile.size + ' #Slices: ' + sliceCount);
+
+                        // Get the file slices.
+                        resolve(await this.getSliceFileAsync(myFile, 0, sliceCount, gotAllSlices, docDataSlices, slicesReceived));
+                    }
+                    else {
+                        console.log('Error:', result.error.message);
+                    }
+                });
+        });
+
+    };
+
+    getSliceFileAsync = (file, nextSlice, sliceCount, gotAllSlices, docDataSlices, slicesReceived) => {
+        return new Promise((resolve) => {
+            file.getSliceAsync(nextSlice, async (sliceResult) => {
+                if (sliceResult.status === 'succeeded') {
+                    if (!gotAllSlices) { // Failed to get all slices, no need to continue.
+                        return;
+                    }
+                    docDataSlices[sliceResult.value.index] = sliceResult.value.data;
+                    if (++slicesReceived === sliceCount) {
+                        file.closeAsync();
+                        console.log(docDataSlices);
+                        resolve(docDataSlices);
+                    }
+                    else {
+                        resolve(await this.getSliceFileAsync(file, ++nextSlice, sliceCount, gotAllSlices, docDataSlices, slicesReceived));
+                    }
+                }
+                else {
+                    gotAllSlices = false;
+                    file.closeAsync();
+                    console.log('getSliceAsync Error:', sliceResult.error.message);
+                }
+            });
+        });
+    };
+
+    /** @desc получить sha512 содержимого документа (хеш 3)*/
+    getHash512DocumentContent = async () => {
+        try {
+            const docDataObject = await this.getFile();
+            let docText = '';
+            Object.entries(docDataObject).forEach((item) => docText += item[1]);
+            return SHA512.hash(docText);
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    };
+
+    /** @desc получить sha512 данных нотаризации (хеш 2)*/
+    getHash512DataOfNotarisation = () => {
+        // TODO: вопрос: номер в реестре и номер свидетельства в презентации омещаются  вразные хеши это нормально?
+        try {
+            return SHA512.hash(JSON.stringify(Object.assign({}, this.state.notarizationData, {
+                notary: this.state.notary,
+            })));
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    };
+
+
+    /** @desc получить sha512 (хеш 1)*/
+    getHash512DateOfDocumentAndNotary = () => {
+        try {
+            return SHA512.hash(JSON.stringify({
+                certificateNumber: this.state.notary.certificateNumber,
+                numberInTheRegistry: this.state.notarizationData.numberInTheRegistry,
+                documentDate: new Date().toISOString(),
+            }));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     render() {
         const {children, isOfficeInitialized, title} = this.props;
 
@@ -248,6 +344,12 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
                 getNotarizationDataDataFromDocumentSetting: this.getNotarizationDataDataFromDocumentSetting,
                 setNotarizationDataDataToAppStore: this.setNotarizationDataDataToAppStore,
                 removeNotarizationDataDataFromDocumentSetting: this.removeNotarizationDataDataFromDocumentSetting,
+
+                getFile: this.getFile,
+
+                getHash512DataOfNotarisation: this.getHash512DataOfNotarisation,
+                getHash512DocumentContent: this.getHash512DocumentContent,
+                getHash512DateOfDocumentAndNotary: this.getHash512DateOfDocumentAndNotary,
             }}
         >
             {

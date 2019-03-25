@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
+import {LocalizeProvider} from 'react-localize-redux';
 
 import App from './App';
 
@@ -15,7 +16,9 @@ const title = 'emernotario-word-add-ins';
 const render = (Component) => {
     ReactDOM.render(
         <AppContainer>
+            <LocalizeProvider>
             <Component title={title} isOfficeInitialized={isOfficeInitialized}/>
+            </LocalizeProvider>
         </AppContainer>,
         document.getElementById('container')
     );

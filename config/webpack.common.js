@@ -48,7 +48,7 @@ const rules = [
         use: ['style-loader', 'css-loader', 'less-loader']
     },
     {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico|json)$/,
         use: {
             loader: 'file-loader',
             query: {
@@ -91,7 +91,7 @@ module.exports = {
     entry,
     output,
     resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.css', '.html']
+        extensions: ['.js','.json', '.jsx', '.ts', '.tsx', '.scss', '.css', '.html']
     },
     module: {
         rules,

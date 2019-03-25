@@ -18,6 +18,7 @@ import {
     right,
     bottom,
     lineHeight,
+    fontWeight
 } from 'styled-system';
 import styled from 'styled-components';
 
@@ -46,6 +47,7 @@ export const Box = styled.div`
   ${borderRadius};
   ${overflow};
   ${color};
+  ${fontWeight};
   ${BackgroundColorProperty};
   ${TextAlignProperty};
 `;

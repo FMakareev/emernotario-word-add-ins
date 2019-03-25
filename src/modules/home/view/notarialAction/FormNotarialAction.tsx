@@ -1,17 +1,17 @@
 import * as React from 'react';
 import {Form, Field} from 'react-final-form';
 import arrayMutators from 'final-form-arrays';
+import {Translate} from 'react-localize-redux';
 
 import {FieldArray} from 'react-final-form-arrays';
 import TextField from '../../../../components/TextField/TextField';
 import Box from '../../../../components/Box/Box';
 import ButtonBase from '../../../../components/ButtonBase/ButtonBase';
 import Flex from '../../../../components/Flex/Flex';
-import {IFormRegistrationValues} from '../registration/index';
+import {IFormRegistrationValues} from '../registration';
 
 
-
-export interface IFormNotarialActionUser extends IFormRegistrationValues{
+export interface IFormNotarialActionUser extends IFormRegistrationValues {
     tin?: string,
 }
 
@@ -45,19 +45,43 @@ const DataOfParticipantOfTheNotarialAct: React.FC<IDataOfParticipantOfTheNotaria
         <Box width={'100%'}>
             <Box mb={5}>
                 {/* Фамилия */}
-                <Field name={`${name}.lastName`} component={TextField} placeholder='Прізвище*'/>
+                <Translate>
+                    {({translate}) => <Field
+                        name={`${name}.lastName`}
+                        component={TextField}
+                        placeholder={translate('user.lastName')}
+                    />}
+                </Translate>
             </Box>
             <Box mb={5}>
                 {/* Имя  */}
-                <Field name={'${name}.firstName'} component={TextField} placeholder='Ім`я*'/>
+                <Translate>
+                    {({translate}) => <Field
+                        name={`${name}.firstName`}
+                        component={TextField}
+                        placeholder={translate('user.firstName')}
+                    />}
+                </Translate>
             </Box>
             <Box mb={5}>
                 {/* Отчество */}
-                <Field name={`${name}.patronymic`} component={TextField} placeholder='По-батькові*'/>
+                <Translate>
+                    {({translate}) => <Field
+                        name={`${name}.patronymic`}
+                        component={TextField}
+                        placeholder={translate('user.patronymic')}
+                    />}
+                </Translate>
             </Box>
             <Box mb={7}>
                 {/* ИНН */}
-                <Field name={`${name}.tin`} component={TextField} placeholder='ІПН (або номер паспорту)'/>
+                <Translate>
+                    {({translate}) => <Field
+                        name={`${name}.tin`}
+                        component={TextField}
+                        placeholder={translate('user.tin')}
+                    />}
+                </Translate>
             </Box>
         </Box>
         <Box
@@ -85,7 +109,7 @@ export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit
                      mutators: {push}
                  }
              }) => (
-        <form onSubmit={handleSubmit}>
+        <form style={{width: '100%', maxWidth: '320px'}} onSubmit={handleSubmit}>
 
             <Box mb={9}>
                 <FieldArray name='customers'>
@@ -100,33 +124,53 @@ export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit
                 </FieldArray>
 
                 <ButtonBase type='button' onClick={() => push('customers', undefined)}>
-                    Добавить участника
+                    <Translate id={'button.addAMember'}/>
                 </ButtonBase>
             </Box>
 
             <Box>
-                <Box mb={5}>
-                    {/* номер в реестре */}
-                    <Field name='numberInTheRegistry' component={TextField} placeholder='Номер в реєстрі*'/>
-                </Box>
-                <Box mb={5}>
-                    {/* Дата документа (по умолчанию текущая) */}
-                    <Field name='documentDate' component={TextField}
-                           placeholder='Дата документу (за замовчуванням поточна)'/>
-                </Box>
-                <Box mb={5}>
-                    {/* Действующий до (если есть) */}
-                    <Field name='existingTo' component={TextField} placeholder='Чинний до (якщо є)'/>
-                </Box>
+                <Translate>
+                    {({translate}) => <>
+                        <Box mb={5}>
+                            {/* номер в реестре */}
+                            <Field
+                                name='document.numberInTheRegistry'
+                                component={TextField}
+                                placeholder={translate('document.numberInTheRegistry')}
+                            />
+                        </Box>
+                        <Box mb={5}>
+                            {/* Дата документа (по умолчанию текущая) */}
+                            <Field
+                                name='document.documentDate'
+                                component={TextField}
+                                placeholder={translate('document.documentDate')}
+                            />
+                        </Box>
+                        <Box mb={5}>
+                            {/* Действующий до (если есть) */}
+                            <Field
+                                name='document.existingTo'
+                                component={TextField}
+                                placeholder={translate('document.existingTo')}
+                            />
+                        </Box>
 
-                <Box mb={5}>
-                    {/* Тип документа */}
-                    <Field name='documentType' component={TextField} placeholder='Тип документу'/>
-                </Box>
+                        <Box mb={5}>
+                            {/* Тип документа */}
+                            <Field
+                                name='document.documentType'
+                                component={TextField}
+                                placeholder={translate('document.documentType')}
+                            />
+                        </Box>
+                    </>}
+                </Translate>
+
             </Box>
 
             <ButtonBase type='submit' disabled={pristine || invalid}>
-                Підписати
+                <Translate id={'button.signDocument'}/>
             </ButtonBase>
         </form>
     )}

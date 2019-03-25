@@ -37,7 +37,7 @@ export const ButtonVariant = (theme: any): IButtonVariant => {
     return {
         flat: {
             'default': {
-                color: theme.colors['color0'],
+                color: theme.colors['color4'],
                 backgroundColor: 'transparent',
                 ...CreateElementState({
                     textDecoration: 'none',
@@ -91,13 +91,13 @@ export const ButtonVariant = (theme: any): IButtonVariant => {
                 }),
             },
             'primary': {
-                color: theme.colors['color7'],
+                color: theme.colors['color4'],
                 backgroundColor: theme.colors['color3'],
                 borderRadius: '5%',
                 boxShadow: 'rgba(0, 0, 0, 0.25) 0px 0px 4px',
                 ...CreateElementState({
                     textDecoration: 'none',
-                    color: theme.colors['color7'],
+                    color: theme.colors['color4'],
                     backgroundColor: theme.colors['color0'],
                 }),
             },

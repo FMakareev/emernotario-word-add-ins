@@ -1,0 +1,43 @@
+{
+  "documentPage":{
+    "dataOfParticipantsOfTheNotarialAct": "Данные участников нотариального действия"
+  },
+  "notaryDataPage": {
+    "welcomeToApp": "Ласкаво просимо до додатку Емернотар:НПУ!",
+    "notaryDataTitle": "Дані нотаріуса",
+    "notaryDataSettingsInfo": "При першому запуску потрібно зберегти стандартні дані для подальшого використання"
+  },
+  "notarizationResultPage":{
+    "successTitle":"Транзакция успешно подписано и сохранена!",
+    "successDescriptionFirst":"Детали транзакции по номеру в реестре можно найти в",
+    "successDescriptionSecond":"Если в дальнейшем вы измените что-то в этом документе, то обязательно нужно повторить процедуру подписи. Для этого нажмите «Редактировать»",
+    "qrCodeLabel":"Нажмите на QR код и он появится в документе в месте где стоит курсор"
+  },
+  "user": {
+    "lastName": "Прізвище",
+    "firstName": "Ім`я",
+    "patronymic": "По-батькові",
+    "tin": "ІПН (або номер паспорту)"
+  },
+  "document": {
+    "numberInTheRegistry": "Номер в реєстрі*",
+    "documentDate": "Дата документу (за замовчуванням поточна)",
+    "existingTo": "Чинний до (якщо є)",
+    "documentType": "Тип документу"
+  },
+  "notary": {
+    "certificateNumber": "Номер свідоцтва"
+  },
+  "button": {
+    "signDocument": "Підписати",
+    "addAMember": "Додати учасника",
+    "save": "Зберегти",
+    "edit": "Редагувати"
+  },
+  "navigation":{
+    "notaryData":"Нотаріус",
+    "notarization":"Нотарізовать",
+    "result":"QR код"
+  }
+
+}

@@ -8,8 +8,8 @@ import Navigation from '../Navigation/Navigation';
 export class Layout extends React.Component {
     render() {
         return (<React.Fragment>
-            <Box>
-                <Box mx={-5}>
+            <Box pb={'88px'}>
+                <Box mx={-5} mb={5}>
                     <Header/>
                 </Box>
 

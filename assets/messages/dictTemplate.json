@@ -1,0 +1,42 @@
+{
+  "documentPage":{
+    "dataOfParticipantsOfTheNotarialAct": null,
+  },
+  "notaryDataPage": {
+    "welcomeToApp": null,
+    "notaryDataTitle": null,
+    "notaryDataSettingsInfo": null
+  },
+  "notarizationResultPage":{
+    "successTitle":null,
+    "successDescriptionFirst":null,
+    "successDescriptionSecond":null,
+    "qrCodeLabel":null
+  },
+  "user":{
+    "lastName": null,
+    "firstName": null,
+    "patronymic": null,
+    "tin": null
+  },
+  "document":{
+    "numberInTheRegistry": null,
+    "existingTo": null,
+    "documentDate": null,
+    "documentType": null
+  },
+  "notary":{
+    "certificateNumber": null
+  },
+  "button": {
+    "signDocument": null,
+    "addAMember": null,
+    "save": null,
+    "edit":null
+  },
+  "navigation":{
+    "notaryData":null,
+    "notarization":null,
+    "result":null
+  }
+}

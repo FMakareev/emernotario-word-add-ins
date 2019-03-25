@@ -134,7 +134,7 @@ export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit
                         <Box mb={5}>
                             {/* номер в реестре */}
                             <Field
-                                name='document.numberInTheRegistry'
+                                name='numberInTheRegistry'
                                 component={TextField}
                                 placeholder={translate('document.numberInTheRegistry')}
                             />
@@ -142,7 +142,7 @@ export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit
                         <Box mb={5}>
                             {/* Дата документа (по умолчанию текущая) */}
                             <Field
-                                name='document.documentDate'
+                                name='documentDate'
                                 component={TextField}
                                 placeholder={translate('document.documentDate')}
                             />
@@ -150,7 +150,7 @@ export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit
                         <Box mb={5}>
                             {/* Действующий до (если есть) */}
                             <Field
-                                name='document.existingTo'
+                                name='existingTo'
                                 component={TextField}
                                 placeholder={translate('document.existingTo')}
                             />
@@ -159,7 +159,7 @@ export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit
                         <Box mb={5}>
                             {/* Тип документа */}
                             <Field
-                                name='document.documentType'
+                                name='documentType'
                                 component={TextField}
                                 placeholder={translate('document.documentType')}
                             />

@@ -8,7 +8,7 @@ import TextField from '../../../../components/TextField/TextField';
 import Box from '../../../../components/Box/Box';
 import ButtonBase from '../../../../components/ButtonBase/ButtonBase';
 import Flex from '../../../../components/Flex/Flex';
-import {IFormRegistrationValues} from '../registration';
+import {IFormRegistrationValues} from '../notaryDataPage';
 
 
 export interface IFormNotarialActionUser extends IFormRegistrationValues {
@@ -16,7 +16,7 @@ export interface IFormNotarialActionUser extends IFormRegistrationValues {
 }
 
 export interface IFormNotarialActionValues {
-    customers: IFormNotarialActionUser[],
+    customers?: IFormNotarialActionUser[],
     numberInTheRegistry?: string,
     documentDate?: string,
     existingTo?: string,
@@ -28,8 +28,10 @@ export interface IFormNotarialActionValues {
 
 export interface IFormNotarialActionProps {
     onSubmit(values: IFormNotarialActionValues): Promise<void>,
+    onSaveDocument(values: IFormNotarialActionValues): void,
 
     initialValues?: IFormNotarialActionValues,
+    [propName: string]: any,
 }
 
 export interface IDataOfParticipantOfTheNotarialActProps {
@@ -95,7 +97,7 @@ const DataOfParticipantOfTheNotarialAct: React.FC<IDataOfParticipantOfTheNotaria
 );
 
 
-export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit, initialValues}) => (<Form
+export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit, onSaveDocument, initialValues}) => (<Form
     onSubmit={onSubmit}
     initialValues={initialValues}
     mutators={{
@@ -106,8 +108,9 @@ export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit
                  pristine,
                  invalid,
                  form: {
-                     mutators: {push}
-                 }
+                     mutators: {push},
+                 },
+                 values,
              }) => (
         <form style={{width: '100%', maxWidth: '320px'}} onSubmit={handleSubmit}>
 
@@ -168,10 +171,20 @@ export const FormNotarialAction: React.FC<IFormNotarialActionProps> = ({onSubmit
                 </Translate>
 
             </Box>
-
-            <ButtonBase type='submit' disabled={pristine || invalid}>
-                <Translate id={'button.signDocument'}/>
-            </ButtonBase>
+            <Flex width={'100%'} justifyContent={'space-between'}>
+                <Box pr={'12px'}>
+                    <ButtonBase type='button' onClick={() => {
+                        onSaveDocument(values);
+                    }}>
+                        <Translate id={'button.save'}/>
+                    </ButtonBase>
+                </Box>
+                <Box>
+                    <ButtonBase type='submit' disabled={pristine || invalid}>
+                        <Translate id={'button.createQRCode'}/>
+                    </ButtonBase>
+                </Box>
+            </Flex>
         </form>
     )}
 />);

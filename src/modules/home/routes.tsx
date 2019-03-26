@@ -1,16 +1,16 @@
-import HomePage from './view/registration/index';
-import NotarialActionPage from './view/notarialAction/index';
-import {NotarizationResultPage} from './view/notarizationResult';
+import DocumentSettingPage from './view/documentSettingPage';
+import NotarizationResultPage from './view/notarizationResult';
+import NotaryDataPage from './view/notaryDataPage';
 
 export const routes = [
     {
-        component: HomePage,
+        component: NotaryDataPage,
         exact: true,
         name: 'Главная',
         path: '/',
     },
     {
-        component: NotarialActionPage,
+        component: DocumentSettingPage,
         exact: true,
         name: 'Нотаризация',
         path: '/notarization',

@@ -77,15 +77,15 @@ const FormRegistration: React.FC<IFormRegistrationProps> = ({onSubmit, initialVa
 />);
 
 
-interface IHomePageProps extends IAppContextProps {
+interface INotaryDataPageProps extends IAppContextProps {
     [propName: string]: any,
 }
 
-interface IHomePageState {
+interface INotaryDataPageState {
     [propName: string]: any,
 }
 
-export class HomePage extends React.Component<IHomePageProps, IHomePageState> {
+export class NotaryDataPage extends React.Component<INotaryDataPageProps, INotaryDataPageState> {
 
     constructor(props) {
         super(props);
@@ -123,12 +123,12 @@ export class HomePage extends React.Component<IHomePageProps, IHomePageState> {
     }
 }
 
-const HomePageWithAppStoreConsumer = (props) => {
+const NotaryDataPageWithAppStoreConsumer = (props) => {
 
     return <AppConsumer>
         {value => {
-            return <HomePage {...value} {...props}/>;
+            return <NotaryDataPage {...value} {...props}/>;
         }}
     </AppConsumer>;
 };
-export default HomePageWithAppStoreConsumer;
+export default NotaryDataPageWithAppStoreConsumer;

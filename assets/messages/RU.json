@@ -32,7 +32,8 @@
     "signDocument": "Подписать",
     "addAMember": "Добавить участника",
     "save": "Сохранить",
-    "edit": "Редактировать"
+    "edit": "Редактировать",
+    "createQRCode": "Сгенерировать QR"
   },
   "navigation":{
     "notaryData":"Нотариус",

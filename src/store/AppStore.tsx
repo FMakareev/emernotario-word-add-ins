@@ -1,10 +1,10 @@
 import * as React from 'react';
 import SHA512 from 'sha512-es';
-import {IFormRegistrationValues} from '../modules/home/view/registration';
+import {IFormRegistrationValues} from '../modules/home/view/notaryDataPage';
 import Progress from '../components/Progress';
 import {
     IFormNotarialActionValues
-} from '../modules/home/view/notarialAction/FormNotarialAction';
+} from '../modules/home/view/documentSettingPage/FormNotarialAction';
 
 
 export interface IInitStatus {

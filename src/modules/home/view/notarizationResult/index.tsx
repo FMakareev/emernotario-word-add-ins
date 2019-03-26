@@ -25,14 +25,14 @@ export class NotarizationResultPage extends React.Component {
                 <Translate id={'notarizationResultPage.successTitle'}/>
             </Box>
 
-            <Box fontSize={7} lintHeight={9} color={'color4'} maxWidth={'300px'} mb={5}>
+            <Box textAlign={'center'}  fontSize={5} lintHeight={7} color={'color4'} maxWidth={'300px'} mb={5}>
 
                 <Translate
                     id={'notarizationResultPage.successDescriptionFirst'}
                 /> <strong style={{whiteSpace: 'nowrap'}}>Key
                 Keeper</strong>
             </Box>
-            <Box fontSize={7} lintHeight={9} color={'color4'} maxWidth={'300px'} mb={9}>
+            <Box textAlign={'center'}  fontSize={5} lintHeight={7} color={'color4'} maxWidth={'300px'} mb={9}>
                 <Translate id={'notarizationResultPage.successDescriptionSecond'}/>
             </Box>
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import FormNotarialAction from './FormNotarialAction';
+import FormNotarialAction, {IFormNotarialActionValues} from './FormNotarialAction';
 import Box from '../../../../components/Box/Box';
 import {AppConsumer, IAppContextProps} from '../../../../store/AppStore';
 import {Translate} from 'react-localize-redux';
@@ -15,9 +15,13 @@ interface INotarialActionPageState {
 }
 
 
-export class NotarialActionPage extends React.Component<INotarialActionPageProps, INotarialActionPageState> {
+export class DocumentSettingPage extends React.Component<INotarialActionPageProps, INotarialActionPageState> {
 
-    onSubmit = async (values: object) => {
+    onSubmit = async (values: IFormNotarialActionValues) => {
+        console.log(values);
+    };
+
+    onSaveDocument = (values: IFormNotarialActionValues) => {
         this.props.setNotarizationDataDataToAppStore(values);
     };
 
@@ -32,18 +36,18 @@ export class NotarialActionPage extends React.Component<INotarialActionPageProps
             <Box fontSize={7} lintHeght={9} fontWeight={'bold'} textAlign={'center'} mb={5} maxWidth={'320px'}>
                 <Translate id={'documentPage.dataOfParticipantsOfTheNotarialAct'}/>
             </Box>
-            <FormNotarialAction initialValues={notarizationData} onSubmit={this.onSubmit}/>
+            <FormNotarialAction initialValues={notarizationData} onSaveDocument={this.onSaveDocument} onSubmit={this.onSubmit}/>
         </Flex>);
     }
 }
 
 
-const NotarialActionPageWithAppStoreConsumer = (props) => {
+const DocumentSettingPageWithAppStoreConsumer = (props) => {
 
-    return <AppConsumer>
+    return (<AppConsumer>
         {value => {
-            return <NotarialActionPage {...value} {...props}/>;
+            return <DocumentSettingPage {...value} {...props}/>;
         }}
-    </AppConsumer>;
+    </AppConsumer>);
 };
-export default NotarialActionPageWithAppStoreConsumer;
+export default DocumentSettingPageWithAppStoreConsumer;

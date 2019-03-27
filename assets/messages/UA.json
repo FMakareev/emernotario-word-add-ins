@@ -39,6 +39,9 @@
     "notaryData":"Нотаріус",
     "notarization":"Нотарізовать",
     "result":"QR код"
+  },
+  "validation": {
+    "required": "Обов'язкове для заповнення"
   }
 
 }

@@ -1,31 +1,31 @@
 {
-  "documentPage":{
+  "documentPage": {
     "dataOfParticipantsOfTheNotarialAct": "Данные участников нотариального действия"
   },
   "notaryDataPage": {
-    "welcomeToApp": "Добро пожаловать в приложении Емернотар: НПУ!",
+    "welcomeToApp": "Добро пожаловать в приложение Емернотар: НПУ!",
     "notaryDataTitle": "Данные нотариуса",
     "notaryDataSettingsInfo": "При первом запуске нужно сохранить стандартные данные для дальнейшего использования"
   },
-  "notarizationResultPage":{
-    "successTitle":"Транзакция успешно подписано и сохранена!",
-    "successDescriptionFirst":"Детали транзакции по номеру в реестре можно найти в",
-    "successDescriptionSecond":"Если в дальнейшем вы измените что-то в этом документе, то обязательно нужно повторить процедуру подписи. Для этого нажмите «Редактировать»",
-    "qrCodeLabel":"Нажмите на QR код и он появится в документе в месте где стоит курсор"
+  "notarizationResultPage": {
+    "successTitle": "Траназакция успешно подписана и сохранена",
+    "successDescriptionFirst": "Детали транзакции по номеру в реестре можно найти в",
+    "successDescriptionSecond": "Если в дальнейшем вы измените что-то в этом документе, то обязательно нужно повторить процедуру подписи. Для этого нажмите «Редактировать»",
+    "qrCodeLabel": "Нажмите на QR код и он появится в документе в месте где стоит курсор"
   },
-  "user":{
+  "user": {
     "lastName": "Фамилия",
     "firstName": "Имя",
     "patronymic": "Отчество",
     "tin": "ИНН"
   },
-  "document":{
+  "document": {
     "numberInTheRegistry": "Номер в реестре",
-    "existingTo": "Действующий до (если есть)",
+    "existingTo": "Действует до... (если есть)",
     "documentDate": "Дата документа (по умолчанию текущая)",
     "documentType": "Тип документа"
   },
-  "notary":{
+  "notary": {
     "certificateNumber": "Номер свидетельства"
   },
   "button": {
@@ -35,9 +35,12 @@
     "edit": "Редактировать",
     "createQRCode": "Сгенерировать QR"
   },
-  "navigation":{
-    "notaryData":"Нотариус",
-    "notarization":"Нотаризовать",
-    "result":"QR код"
+  "navigation": {
+    "notaryData": "Нотариус",
+    "notarization": "Нотаризовать",
+    "result": "QR код"
+  },
+  "validation": {
+    "required": "Обязательно для заполнения"
   }
 }

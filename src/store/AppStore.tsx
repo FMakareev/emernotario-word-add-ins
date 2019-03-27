@@ -82,7 +82,6 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
         });
     };
 
-
     /**
      * @desc метод получает из локального кеша документа данные нотариуса
      * */
@@ -162,7 +161,6 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
             });
     };
 
-
     /** @desc метод получает данные нотаризации из кеша документа */
     getNotarizationDataDataFromDocumentSetting = (): IFormNotarialActionValues => {
         try {
@@ -189,6 +187,9 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
             return null;
         }
     };
+
+
+
 
     /** @desc метод записывает данные нотаризации в кеш документа */
     setNotarizationDataDataToAppStore = (notarizationData) => {
@@ -313,7 +314,6 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
             return null;
         }
     };
-
 
     /** @desc получить sha512 (хеш 1)*/
     getHash512DateOfDocumentAndNotary = () => {

@@ -16,21 +16,29 @@
   <ProviderName>EMERTech</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-  <DisplayName DefaultValue="emernotario-word-add-ins" />
-  <Description DefaultValue="[Document Add-in description]"/>
+
+  <DisplayName DefaultValue="Emernotar: NPU">
+    <Override Locale="ru-ru" Value="Емернотар: НПУ" />
+    <Override Locale="uk-ua" Value="Емернотар: НПУ" />
+    <Override Locale="en-us" Value="Emernotar: NPU" />
+  </DisplayName>
+
+  <Description DefaultValue="Welcome to the app Emernotar: NPU.">
+    <Override Locale="ru-ru" Value="Добро пожаловать в приложение Емернотар: НПУ." />
+    <Override Locale="uk-ua" Value="Ласкаво просимо до додатку Емернотар:НПУ!" />
+    <Override Locale="en-us" Value="Welcome to the app Emernotar: NPU." />
+  </Description>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
-  <!--<SupportUrl DefaultValue="[Insert the URL of a page that provides support information for the app]">-->
+  <SupportUrl DefaultValue="https://code-artel.com"/>
 
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
   <AppDomains>
-    <AppDomain>AppDomain1</AppDomain>
-    <AppDomain>AppDomain2</AppDomain>
-    <AppDomain>AppDomain3</AppDomain>
+    <AppDomain>https://localhost:3000</AppDomain>
   </AppDomains>
   <!--End Basic Settings. -->
 
@@ -59,54 +67,54 @@
           <!--"This code enables a customizable message to be displayed when the add-in is loaded successfully upon individual install."-->
           <GetStarted>
             <!-- Title of the Getting Started callout. resid points to a ShortString resource -->
-            <Title resid="Contoso.GetStarted.Title"/>
+            <Title resid="EMERTech.GetStarted.Title"/>
 
             <!-- Description of the Getting Started callout. resid points to a LongString resource -->
-            <Description resid="Contoso.GetStarted.Description"/>
+            <Description resid="EMERTech.GetStarted.Description"/>
 
             <!-- Point to a url resource which details how the add-in should be used. -->
-            <LearnMoreUrl resid="Contoso.GetStarted.LearnMoreUrl"/>
+            <LearnMoreUrl resid="EMERTech.GetStarted.LearnMoreUrl"/>
           </GetStarted>
           <!-- Function file is a HTML page that includes the JavaScript where functions for ExecuteAction will be called.
             Think of the FunctionFile as the code behind ExecuteFunction. -->
-          <FunctionFile resid="Contoso.DesktopFunctionFile.Url" />
+          <FunctionFile resid="EMERTech.DesktopFunctionFile.Url" />
 
           <!-- PrimaryCommandSurface is the main Office Ribbon. -->
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <!-- Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab. -->
             <OfficeTab id="TabHome">
               <!-- Ensure you provide a unique id for the group. Recommendation for any IDs is to namespace using your company name. -->
-              <Group id="Contoso.Group1">
+              <Group id="EMERTech.Group1">
                 <!-- Label for your group. resid must point to a ShortString resource. -->
-                <Label resid="Contoso.Group1Label" />
+                <Label resid="EMERTech.Group1Label" />
                 <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
                 <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
                 <Icon>
-                  <bt:Image size="16" resid="Contoso.tpicon_16x16" />
-                  <bt:Image size="32" resid="Contoso.tpicon_32x32" />
-                  <bt:Image size="80" resid="Contoso.tpicon_80x80" />
+                  <bt:Image size="16" resid="EMERTech.tpicon_16x16" />
+                  <bt:Image size="32" resid="EMERTech.tpicon_32x32" />
+                  <bt:Image size="80" resid="EMERTech.tpicon_80x80" />
                 </Icon>
 
                 <!-- Control. It can be of type "Button" or "Menu". -->
-                <Control xsi:type="Button" id="Contoso.TaskpaneButton">
-                  <Label resid="Contoso.TaskpaneButton.Label" />
+                <Control xsi:type="Button" id="EMERTech.TaskpaneButton">
+                  <Label resid="EMERTech.TaskpaneButton.Label" />
                   <Supertip>
                     <!-- ToolTip title. resid must point to a ShortString resource. -->
-                    <Title resid="Contoso.TaskpaneButton.Label" />
+                    <Title resid="EMERTech.TaskpaneButton.Label" />
                     <!-- ToolTip description. resid must point to a LongString resource. -->
-                    <Description resid="Contoso.TaskpaneButton.Tooltip" />
+                    <Description resid="EMERTech.TaskpaneButton.Tooltip" />
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="Contoso.tpicon_16x16" />
-                    <bt:Image size="32" resid="Contoso.tpicon_32x32" />
-                    <bt:Image size="80" resid="Contoso.tpicon_80x80" />
+                    <bt:Image size="16" resid="EMERTech.tpicon_16x16" />
+                    <bt:Image size="32" resid="EMERTech.tpicon_32x32" />
+                    <bt:Image size="80" resid="EMERTech.tpicon_80x80" />
                   </Icon>
 
                   <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>ButtonId1</TaskpaneId>
                     <!-- Provide a url resource id for the location that will be displayed on the task pane. -->
-                    <SourceLocation resid="Contoso.Taskpane.Url" />
+                    <SourceLocation resid="EMERTech.Taskpane.Url" />
                   </Action>
                 </Control>
               </Group>
@@ -119,25 +127,41 @@
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
-        <bt:Image id="Contoso.tpicon_16x16" DefaultValue="https://localhost:3000/assets/icon-16.png" />
-        <bt:Image id="Contoso.tpicon_32x32" DefaultValue="https://localhost:3000/assets/icon-32.png" />
-        <bt:Image id="Contoso.tpicon_80x80" DefaultValue="https://localhost:3000/assets/icon-80.png" />
+        <bt:Image id="EMERTech.tpicon_16x16" DefaultValue="https://localhost:3000/assets/icon-16.png" />
+        <bt:Image id="EMERTech.tpicon_32x32" DefaultValue="https://localhost:3000/assets/icon-32.png" />
+        <bt:Image id="EMERTech.tpicon_80x80" DefaultValue="https://localhost:3000/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Contoso.Taskpane.Url" DefaultValue="https://localhost:3000/index.html" />
-        <bt:Url id="Contoso.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
-        <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="https://localhost:3000/function-file/function-file.html" />
+        <bt:Url id="EMERTech.Taskpane.Url" DefaultValue="https://localhost:3000/index.html" />
+        <bt:Url id="EMERTech.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+        <bt:Url id="EMERTech.DesktopFunctionFile.Url" DefaultValue="https://localhost:3000/function-file/function-file.html" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
-        <bt:String id="Contoso.TaskpaneButton.Label" DefaultValue="Show Taskpane" />
-        <bt:String id="Contoso.Group1Label" DefaultValue="Commands Group" />
-        <bt:String id="Contoso.GetStarted.Title" DefaultValue="Get started with your sample add-in!" />
+        <bt:String id="EMERTech.TaskpaneButton.Label" DefaultValue="Emernotar: NPU!" >
+          <bt:Override Locale="ru-ru" Value="Емернотар: НПУ!" />
+          <bt:Override Locale="uk-ua" Value="Емернотар: НПУ!" />
+          <bt:Override Locale="en-us" Value="Emernotar: NPU!" />
+        </bt:String>
+        <bt:String id="EMERTech.Group1Label" DefaultValue="-" />
+        <bt:String id="EMERTech.GetStarted.Title" DefaultValue="Get started with Emernotar: NPU!" >
+          <bt:Override Locale="ru-ru" Value="Начните работу с Емернотар: НПУ!" />
+          <bt:Override Locale="uk-ua" Value="Почніть роботу з Емернотар: НПУ!" />
+          <bt:Override Locale="en-us" Value="Get started with Emernotar: NPU!" />
+        </bt:String>
       </bt:ShortStrings>
       <!-- LongStrings max characters==250. -->
       <bt:LongStrings>
-        <bt:String id="Contoso.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
-        <bt:String id="Contoso.GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started." />
+        <bt:String id="EMERTech.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" >
+          <bt:Override Locale="ru-ru" Value="Нажмите, чтобы показать панель задач" />
+          <bt:Override Locale="uk-ua" Value="Натисніть, щоб показати панель завдань" />
+          <bt:Override Locale="en-us" Value="Click to Show a Taskpane" />
+        </bt:String>
+        <bt:String id="EMERTech.GetStarted.Description" DefaultValue="Add-in Emernotar: NPU loaded successfully. Go to the HOME tab and click the 'Show Task Pane' button to get started." >
+          <bt:Override Locale="ru-ru" Value="Надстройка Emernotar: NPU успешно загружен. Перейдите на вкладку 'Главная' и нажмите кнопку «Показать панель задач», чтобы начать." />
+          <bt:Override Locale="uk-ua" Value="Надбудова Emernotar: NPU завантажена успішно. Перейдіть на вкладку 'Головна' і натисніть кнопку 'Показати панель завдань', щоб розпочати роботу." />
+          <bt:Override Locale="en-us" Value="Add-in Emernotar: NPU loaded successfully. Go to the HOME tab and click the 'Show Task Pane' button to get started." />
+        </bt:String>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

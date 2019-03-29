@@ -1,7 +1,9 @@
 export interface ILanguage {
     name: string,
     code: string,
-    active: boolean
+    dir?: string,
+    active: boolean,
+    [propName: string]: any,
 }
 
 

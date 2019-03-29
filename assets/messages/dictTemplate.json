@@ -1,6 +1,6 @@
 {
   "documentPage":{
-    "dataOfParticipantsOfTheNotarialAct": null,
+    "dataOfParticipantsOfTheNotarialAct": null
   },
   "notaryDataPage": {
     "welcomeToApp": null,
@@ -32,11 +32,15 @@
     "signDocument": null,
     "addAMember": null,
     "save": null,
-    "edit":null
+    "edit":null,
+    "createQRCode": null
   },
   "navigation":{
     "notaryData":null,
     "notarization":null,
     "result":null
+  },
+  "validation": {
+    "required": null
   }
 }

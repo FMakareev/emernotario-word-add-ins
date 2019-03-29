@@ -53,15 +53,42 @@ const DropDownContentItem = styled(Box)`
 `;
 
 
+const Container = document.getElementById('container');
+
+
+const toggleClassName = (add: string, remove: string) => {
+    if (!Container.classList.contains(add)) {
+        Container.classList.add(add);
+    }
+    if (Container.classList.contains(remove)) {
+        Container.classList.remove(remove);
+    }
+};
+
 export const LanguageSwitcher: React.FC<ILanguageSwitcherProps> = ({languages, activeLanguage, setActiveLanguage}) => {
-    console.log('LanguageSwitcher: ', languages, activeLanguage, setActiveLanguage);
     return (
         <DropDownContainer>
             <DropDownToggle>{activeLanguage.name}</DropDownToggle>
             <DropDownContent className={'DropDownContent'}>
                 {languages.map((lang) => (
                     <DropDownContentItem className={activeLanguage.code === lang.code ? 'activeLanguage' : ''}
-                                         onClick={() => setActiveLanguage(lang.code)} key={lang.code}>
+                                         onClick={() => {
+                                             switch (lang.dir) {
+                                                 case('rtl'): {
+                                                     toggleClassName('dir-rtl', 'dir-ltr');
+                                                     break;
+                                                 }
+                                                 case('ltr'): {
+                                                     toggleClassName('dir-ltr', 'dir-rtl');
+                                                     break;
+                                                 }
+                                                 default: {
+                                                     toggleClassName('dir-ltr', 'dir-rtl');
+                                                     break;
+                                                 }
+                                             }
+                                             setActiveLanguage(lang.code);
+                                         }} key={lang.code}>
                         {lang.name}
                     </DropDownContentItem>
                 ))}

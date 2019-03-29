@@ -1,0 +1,46 @@
+{
+  "documentPage": {
+    "dataOfParticipantsOfTheNotarialAct": "Data of participants of notarization"
+  },
+  "notaryDataPage": {
+    "welcomeToApp": "Welcome to the app Emernotar: NPU!",
+    "notaryDataTitle": "Notary data",
+    "notaryDataSettingsInfo": "When you first start you need to save the standard data for future use."
+  },
+  "notarizationResultPage": {
+    "successTitle": "Transaction successfully signed and saved",
+    "successDescriptionFirst": "Details of the transaction by the number in the registry can be found in",
+    "successDescriptionSecond": "If you later change something in this document, you must repeat the signing procedure. To do this, click \"Edit\"",
+    "qrCodeLabel": "Click on the QR code and it will appear in the document where the cursor is."
+  },
+  "user": {
+    "lastName": "Last Name",
+    "firstName": "First Name",
+    "patronymic": "Patronymic",
+    "tin": "TIN"
+  },
+  "document": {
+    "numberInTheRegistry": "Registry number",
+    "existingTo": "Valid until ... (if any)",
+    "documentDate": "Document Date (current by default)",
+    "documentType": "Document type"
+  },
+  "notary": {
+    "certificateNumber": "Certificate number"
+  },
+  "button": {
+    "signDocument": "Subscribe",
+    "addAMember": "Add member",
+    "save": "Save",
+    "edit": "Edit",
+    "createQRCode": "Generate QR"
+  },
+  "navigation": {
+    "notaryData": "Notary",
+    "notarization": "Notarize",
+    "result": "QR code"
+  },
+  "validation": {
+    "required": "Required"
+  }
+}

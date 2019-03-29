@@ -14,9 +14,6 @@ import styled from 'styled-components';
 /**View */
 import { Box } from '../Box/Box';
 
-/** Style property */
-import { BackgroundColorProperty } from '../../styles/styleProperty/BackgroundColorProperty';
-
 export const Flex = styled(Box)`
   display: flex;
   ${justifyContent};
@@ -28,7 +25,6 @@ export const Flex = styled(Box)`
   ${flexDirection};
   ${flexWrap};
   ${display};
-  ${BackgroundColorProperty};
 `;
 
 Flex.propTypes = {

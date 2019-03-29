@@ -13,6 +13,7 @@ import home from './modules/home/index';
 import StyledThemeProvider from './styles/StyledThemeProvider';
 import {Layout} from './components/Layout/Layout';
 import {AppProvider} from './store/AppStore';
+import {ILanguage} from './interfaces/react-localize-redux';
 
 export interface AppProps {
     title: string;
@@ -34,8 +35,18 @@ const AppProviderWithRouterConsumer = (props) => {
     </RouterConsumer>;
 };
 
+const toggleClassName = (Container: any, add: string, remove: string) => {
+    if (!Container.classList.contains(add)) {
+        Container.classList.add(add);
+    }
+    if (Container.classList.contains(remove)) {
+        Container.classList.remove(remove);
+    }
+};
 
 export class App extends React.Component<AppProps, AppState> {
+
+    appContainer = null;
 
     static defaultProps = {
         activeLanguage: {},
@@ -45,6 +56,7 @@ export class App extends React.Component<AppProps, AppState> {
         super(props);
         this.state = this.initialState;
         this.initLocalization();
+        this.appContainer = document.getElementById('container');
     }
 
     get initialState() {
@@ -64,6 +76,23 @@ export class App extends React.Component<AppProps, AppState> {
             this.addTranslationsForActiveLanguage(this.props.activeLanguage.code);
         }
     }
+
+    changeDirection = (dir) => {
+        switch (dir) {
+            case('rtl'): {
+                toggleClassName(this.appContainer, 'dir-rtl', 'dir-ltr');
+                break;
+            }
+            case('ltr'): {
+                toggleClassName(this.appContainer, 'dir-ltr', 'dir-rtl');
+                break;
+            }
+            default: {
+                toggleClassName(this.appContainer, 'dir-ltr', 'dir-rtl');
+                break;
+            }
+        }
+    };
 
     addTranslationsForActiveLanguage = (code) => {
         return fetch(`./assets/messages/${code}.json`)
@@ -91,20 +120,34 @@ export class App extends React.Component<AppProps, AppState> {
      * @desc инициализация языков
      * */
     initLocalization = async () => {
-        const languages = await this.getLocalizationList();
-        this.addTranslationsForActiveLanguage('RU');
+        const languages: ILanguage[] = await this.getLocalizationList();
+        const config = {
+            languages: [],
+            translation: {},
+            changeDirection: this.changeDirection,
+            options: {
+                defaultLanguage: 'en-us',
+                renderToStaticMarkup: false,
+            }
+        };
+        const defaultLanguageAddIns: ILanguage = languages.find((lang: ILanguage) => lang.default);
+        const userDisplayLanguage: string = Office.context.displayLanguage;
+
+        const userLanguageInAddInDictionary: ILanguage = languages.find((lang: ILanguage) => lang.code.toLowerCase() === userDisplayLanguage.toLowerCase());
+
+        if (userLanguageInAddInDictionary) {
+            this.addTranslationsForActiveLanguage(userLanguageInAddInDictionary.code.toLowerCase());
+            config.options.defaultLanguage = userLanguageInAddInDictionary.code.toLowerCase();
+            this.changeDirection(userLanguageInAddInDictionary.dir);
+        } else {
+            this.addTranslationsForActiveLanguage(defaultLanguageAddIns.code.toLowerCase());
+            config.options.defaultLanguage = defaultLanguageAddIns.code.toLowerCase();
+            this.changeDirection(defaultLanguageAddIns.dir);
+        }
 
         if (languages.length) {
-            this.props.initialize({
-                languages: [
-                    ...languages
-                ],
-                translation: {},
-                options: {
-                    defaultLanguage: 'RU',
-                    renderToStaticMarkup: false,
-                }
-            });
+            config.languages = languages;
+            this.props.initialize(config);
         }
 
     };
@@ -126,18 +169,26 @@ export class App extends React.Component<AppProps, AppState> {
 
     render() {
         return (
-            <RouterProvider
-                routes={[
-                    ...home.routes,
-                ]}
-            >
-                <AppProviderWithRouterConsumer {...this.props}>
-                    <StyledThemeProvider>
+            <StyledThemeProvider>
+                <RouterProvider
+                    routes={[
+                        ...home.routes,
+                    ]}
+                >
+                    <button onClick={() => {
+                        const displayLanguage = Office.context.displayLanguage;
+                        const contentLanguage = Office.context.contentLanguage;
+                        console.log('displayLanguage: ', displayLanguage);
+                        console.log('contentLanguage: ', contentLanguage);
+                    }}>
+                        teda
+                    </button>
+                    <AppProviderWithRouterConsumer {...this.props}>
                         <Layout/>
-                    </StyledThemeProvider>
-                </AppProviderWithRouterConsumer>
+                    </AppProviderWithRouterConsumer>
 
-            </RouterProvider>
+                </RouterProvider>
+            </StyledThemeProvider>
         );
     }
 }

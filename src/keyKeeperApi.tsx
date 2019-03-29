@@ -48,6 +48,9 @@ export class KeyKeeperApi implements IKeyKeeperApi {
     }
 
 
+    /**
+     * @desc Sign a message with the private key of an address
+     * */
     getbalance = (account: string = '', minconf: number = 6, include_watchonly: boolean = false) => {
         return new Promise((resolve: any, reject: any) => {
             this.client.request('getbalance', [account, minconf, include_watchonly], (result) => {

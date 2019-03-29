@@ -189,8 +189,6 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
     };
 
 
-
-
     /** @desc метод записывает данные нотаризации в кеш документа */
     setNotarizationDataDataToAppStore = (notarizationData) => {
         Office.context.document.settings.set('notarizationData', JSON.stringify(notarizationData));
@@ -329,7 +327,11 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
     };
 
     render() {
-        const {children, isOfficeInitialized, title} = this.props;
+        const {
+            children,
+            isOfficeInitialized,
+            title
+        } = this.props;
 
         return (<Provider
             value={{
@@ -363,7 +365,6 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
                 <Progress
                     title={title}
                     logo='assets/icon_logo.svg'
-                    message='Please sideload your addin to see app body.'
                 />
             }
         </Provider>);

@@ -175,18 +175,9 @@ export class App extends React.Component<AppProps, AppState> {
                         ...home.routes,
                     ]}
                 >
-                    <button onClick={() => {
-                        const displayLanguage = Office.context.displayLanguage;
-                        const contentLanguage = Office.context.contentLanguage;
-                        console.log('displayLanguage: ', displayLanguage);
-                        console.log('contentLanguage: ', contentLanguage);
-                    }}>
-                        teda
-                    </button>
                     <AppProviderWithRouterConsumer {...this.props}>
                         <Layout/>
                     </AppProviderWithRouterConsumer>
-
                 </RouterProvider>
             </StyledThemeProvider>
         );

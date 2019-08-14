@@ -58,7 +58,7 @@ $RECYCLE.BIN/
 obj
 bin
 *.user
-
+.idea/
 node_modules/**
 packages/**
 typings/**

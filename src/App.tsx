@@ -115,12 +115,26 @@ export class App extends React.Component<AppProps, AppState> {
             });
     };
 
+/** @desc метод возвращает либо текущий язык платформы либо язык по умолчанию */
+    getCurrentLanguage = (defaultLang: string = 'en-us'): string => {
+        try {
+            if (Office && Office.context) {
+                return Office.context.displayLanguage || Office.context.contentLanguage;
+            }
+            return defaultLang;
+        } catch (e) {
+            console.log(e);
+            return defaultLang;
+        }
+    };
+
     /**
      * @return {promise}
      * @desc инициализация языков
      * */
     initLocalization = async () => {
         const languages: ILanguage[] = await this.getLocalizationList();
+
         const config = {
             languages: [],
             translation: {},
@@ -131,8 +145,7 @@ export class App extends React.Component<AppProps, AppState> {
             }
         };
         const defaultLanguageAddIns: ILanguage = languages.find((lang: ILanguage) => lang.default);
-        const userDisplayLanguage: string = Office.context.displayLanguage;
-
+        const userDisplayLanguage: string = this.getCurrentLanguage();
         const userLanguageInAddInDictionary: ILanguage = languages.find((lang: ILanguage) => lang.code.toLowerCase() === userDisplayLanguage.toLowerCase());
 
         if (userLanguageInAddInDictionary) {

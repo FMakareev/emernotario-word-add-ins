@@ -2,6 +2,13 @@ import fetch from 'unfetch';
 
 const jaysonBrowserClient = require('jayson/lib/client/browser');
 
+export interface IKeyKeeperApiResponse {
+    id: string,
+    result: any,
+    error: any,
+
+    [propName: string]: any
+}
 
 export interface IKeyKeeperApi {
     client: any,
@@ -13,7 +20,7 @@ export interface IKeyKeeperApi {
 
 
 let callServer = (url: any) => (request: any, callback: any) => {
-
+    console.log('request: ', request);
     let options = {
         method: 'POST',
         // cors: 'cors',
@@ -53,7 +60,7 @@ export class KeyKeeperApi implements IKeyKeeperApi {
      * */
     getbalance = (account: string = '', minconf: number = 6, include_watchonly: boolean = false) => {
         return new Promise((resolve: any, reject: any) => {
-            this.client.request('getbalance', [account, minconf, include_watchonly], (result) => {
+            this.client.request('getbalance', [account, minconf, include_watchonly], (result: IKeyKeeperApiResponse) => {
                 if (result.error) {
                     console.log('getbalance  error: ', result);
                     return reject(result);
@@ -69,7 +76,7 @@ export class KeyKeeperApi implements IKeyKeeperApi {
      * */
     signmessage(address: string, message: string) {
         return new Promise((resolve: any, reject: any) => {
-            this.client.request('signmessage', [address, message], (result) => {
+            this.client.request('signmessage', [address, message], (result: IKeyKeeperApiResponse) => {
                 if (result.error) {
                     console.log('signmessage  error: ', result);
                     return reject(result);
@@ -108,8 +115,9 @@ export class KeyKeeperApi implements IKeyKeeperApi {
      * @desc Show values of a name.
      * */
     name_show(name: string) {
+        console.log(name);
         return new Promise((resolve: any, reject: any) => {
-            this.client.request('name_show', [name], (result) => {
+            this.client.request('name_show', ['ssh:denisd'], (result: IKeyKeeperApiResponse) => {
                 if (result.error) {
                     console.log('name_show  error: ', result);
                     return reject(result);
@@ -121,3 +129,6 @@ export class KeyKeeperApi implements IKeyKeeperApi {
     }
 
 }
+
+// curl --data-binary "{"jsonrpc": "1.0", "id":"curltest", "method": "name_show", "params": {"name":"BT7SSKKTV7", "valuetype":"base64"} }" -H "content-type: text/plain;" http://127.0.0.1:6663/
+

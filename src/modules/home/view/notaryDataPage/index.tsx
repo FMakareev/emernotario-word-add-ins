@@ -19,6 +19,7 @@ export interface IFormRegistrationValues {
     firstName?: string,
     patronymic?: string,
     certificateNumber?: string,
+    [propName: string]: any,
 }
 
 export interface IFormRegistrationProps extends ILocalize {

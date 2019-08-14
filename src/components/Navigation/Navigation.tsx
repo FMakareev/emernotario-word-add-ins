@@ -38,6 +38,9 @@ export class Navigation extends React.Component {
                         <LinkStyled to={'/notarization-result'}>
                             {translate('navigation.result')}
                         </LinkStyled>
+                        <LinkStyled to={'/test'}>
+                            test
+                        </LinkStyled>
                     </>
                 }
             </Translate>

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import SHA512 from 'sha512-es';
+import SHA256 from 'sha256-es';
 import {IFormRegistrationValues} from '../modules/home/view/notaryDataPage';
 import Progress from '../components/Progress';
 import {
     IFormNotarialActionValues
 } from '../modules/home/view/documentSettingPage/FormNotarialAction';
+import {IKeyKeeperApiResponse, KeyKeeperApi} from '../keyKeeperApi';
 
 
 export interface IInitStatus {
@@ -44,16 +45,21 @@ interface IAppProviderProps {
 }
 
 interface IAppProviderState {
+    notary: IFormRegistrationValues,
+    notarizationData: IFormNotarialActionValues,
+
     [propName: string]: any,
 }
 
 
 export class AppProvider extends React.Component<IAppProviderProps, IAppProviderState> {
 
+    keyKeeper = null;
 
     constructor(props) {
         super(props);
         this.state = this.initialState;
+        this.keyKeeper = new KeyKeeperApi();
     }
 
     get initialState() {
@@ -66,6 +72,30 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
             },
         };
     }
+
+    componentDidMount() {
+        this.initAppProvider();
+    }
+
+    initAppProvider = async () => {
+        console.log('initAppProvider: ',);
+        const {notary, notarizationData} = this.state;
+
+        console.log('initAppProvider: ', notary, notarizationData);
+
+        if (notary && notarizationData) {
+
+            this.keyKeeper.name_show(this.getHash512DateOfDocumentAndNotary())
+                .then((response: IKeyKeeperApiResponse) => {
+                    console.log('response: ', response);
+                })
+                .catch((error: IKeyKeeperApiResponse) => {
+                    console.log('error: ', error);
+                });
+        }
+
+
+    };
 
     /**
      * @desc метод выполняет сохранение локальных данных записаных через метод Office.context.document.settings.set в документ
@@ -89,12 +119,6 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
         try {
 
             const notary = Office.context.document.settings.get('notary');
-
-            if (notary) {
-                this.props.action.push('/notarization');
-            } else {
-                this.props.action.push('/');
-            }
 
             this.setState({
                 notary: JSON.parse(notary),
@@ -293,36 +317,38 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
             const docDataObject = await this.getFile();
             let docText = '';
             Object.entries(docDataObject).forEach((item) => docText += item[1]);
-            return SHA512.hash(docText);
+            return SHA256.hash(docText);
         } catch (error) {
-            console.log(error);
-            return null;
+            console.error('Error getHash512DocumentContent: ', error);
+            return error;
         }
     };
 
     /** @desc получить sha512 данных нотаризации (хеш 2)*/
     getHash512DataOfNotarisation = () => {
+        // TODO: добавить название документа
         // TODO: вопрос: номер в реестре и номер свидетельства в презентации омещаются  вразные хеши это нормально?
         try {
-            return SHA512.hash(JSON.stringify(Object.assign({}, this.state.notarizationData, {
+            return SHA256.hash(JSON.stringify(Object.assign({}, this.state.notarizationData, {
                 notary: this.state.notary,
             })));
         } catch (error) {
-            console.log(error);
-            return null;
+            console.error('Error getHash512DataOfNotarisation: ', error);
+            return error;
         }
     };
 
     /** @desc получить sha512 (хеш 1)*/
     getHash512DateOfDocumentAndNotary = () => {
         try {
-            return SHA512.hash(JSON.stringify({
+            return SHA256.hash(JSON.stringify({
                 certificateNumber: this.state.notary.certificateNumber,
                 numberInTheRegistry: this.state.notarizationData.numberInTheRegistry,
                 documentDate: new Date().toISOString(),
             }));
         } catch (error) {
-            console.log(error);
+            console.error('Error getHash512DateOfDocumentAndNotary: ', error);
+            return error;
         }
     };
 
@@ -352,6 +378,8 @@ export class AppProvider extends React.Component<IAppProviderProps, IAppProvider
                 getHash512DataOfNotarisation: this.getHash512DataOfNotarisation,
                 getHash512DocumentContent: this.getHash512DocumentContent,
                 getHash512DateOfDocumentAndNotary: this.getHash512DateOfDocumentAndNotary,
+
+                initAppProvider: this.initAppProvider
             }}
         >
             {

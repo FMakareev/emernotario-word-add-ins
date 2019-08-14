@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { QRCode } from "react-qr-svg";
 import {AppConsumer} from '../../../../store/AppStore';
 import Box from '../../../../components/Box/Box';
 import ButtonBase from '../../../../components/ButtonBase/ButtonBase';
@@ -38,13 +39,12 @@ export class NotarizationResultPage extends React.Component {
 
             <Flex flexDirection={'column'} justifyContent={'center'} alignItems={'center'} mb={9}>
                 <Box width={'200px'}>
-                    <img
-                        onClick={() => {
-                            this.InsertImageHtml('http://qrcoder.ru/code/?https%3A%2F%2Femernotar.io%2F&4&0');
-                        }}
-                        width={'200px'}
-                        height={'200px'}
-                        src={'http://qrcoder.ru/code/?https%3A%2F%2Femernotar.io%2F&4&0'}
+                    <QRCode
+                        bgColor={'#FFFFFF'}
+                        fgColor={'#000000'}
+                        level={'Q'}
+                        style={{ width: 200 }}
+                        value={'http://qrcoder.ru/code/?https%3A%2F%2Femernotar.io%2F&4&0'}
                     />
                 </Box>
                 <Box textAlign={'center'} maxWidth={'300px'} fontSize={5} lintHeight={7} color={'color4'} mb={3}>
